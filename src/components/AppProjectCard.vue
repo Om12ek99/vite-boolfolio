@@ -9,19 +9,14 @@ export default {
     }
 }
 </script>
+
 <template>
-    <div class="project-card">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.content }}</p>
+    <div class="card h-100">
+        <div class="card-body">
+            <h5 class="card-title">{{ project.title }}</h5>
+            <p class="card-text">{{ project.content }}</p>
+        </div>
     </div>
-
-
 </template>
-<style scoped="scss">
-.project-card {
-  border: 1px solid #ddd;
-  padding: 16px;
-  margin: 8px;
-  border-radius: 4px;
-}
-</style>
+
+<style scoped="scss"></style>

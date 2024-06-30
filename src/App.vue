@@ -8,6 +8,6 @@ export default {
 </script>
 
 <template>
-  <h1>ciao mondo</h1>
+  <h1>Boolpress Projects</h1>
   <AppMain />
 </template>
