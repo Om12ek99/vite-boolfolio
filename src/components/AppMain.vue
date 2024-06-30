@@ -14,13 +14,21 @@ export  default{
     },
     created() {
         axios.get("http://127.0.0.1:8000/api/projects").then((resp)=> {
-            console.log(resp);
-        })
+            this.projects = resp.data.results;
+        });
     },
 }
 </script>
 <template>
-        <h2>ciao</h2>
-</template>
+    <div>
+      <h2>Progetti</h2>
+      <div v-if="projects.length">
+        <AppProjectCard v-for="project in projects" :key="project.id" :project="project" />
+      </div>
+      <div v-else>
+        <p>Non ci sono progetti da visualizzare.</p>
+      </div>
+    </div>
+  </template>
 <style>
 </style>
