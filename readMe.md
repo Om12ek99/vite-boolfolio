@@ -46,3 +46,12 @@ Questo progetto si compone di due parti principali: la creazione di un'API Larav
 
 3. **Verifica dei dati**:
     - I dati sono stati ricevuti correttamente e visualizzati nella console del browser.
+
+## Milestone 5: Creazione e Stilizzazione dei Componenti
+
+1. **Creato componente `AppProjectMain` in `components`**.
+2. **Create le props e definito un condizionale**.
+3. **Definito un ciclo for per la ciclazione dei dati nell’oggetto `projects`**.
+4. **Passaggio delle props ad `AppProjectsCard`**.
+5. **Stilizzazione base**.
+
