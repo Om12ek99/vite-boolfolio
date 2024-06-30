@@ -22,13 +22,16 @@ export  default{
 <template>
     <div>
       <h2>Progetti</h2>
-      <div v-if="projects.length">
-        <AppProjectCard v-for="project in projects" :key="project.id" :project="project" />
+      <div v-if="projects.length" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" v-for="project in projects" :key="project.id">
+          <AppProjectCard :project="project" />
+        </div>
       </div>
       <div v-else>
         <p>Non ci sono progetti da visualizzare.</p>
       </div>
     </div>
   </template>
+  
 <style>
 </style>

@@ -17,4 +17,11 @@ export default {
 
 
 </template>
-<style scoped="scss"></style>
+<style scoped="scss">
+.project-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 4px;
+}
+</style>
