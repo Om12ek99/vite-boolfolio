@@ -10,6 +10,7 @@ export default {
         return {
             //array vuoto inizializato
             projects: [],
+            
         };
     },
     created() {
