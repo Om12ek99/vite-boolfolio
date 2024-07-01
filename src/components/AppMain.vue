@@ -10,14 +10,27 @@ export default {
         return {
             //array vuoto inizializato
             projects: [],
-            
+            lastPage: 0,
+            curPage: 1,
         };
     },
     created() {
-        axios.get("http://127.0.0.1:8000/api/projects").then((resp) => {
-            this.projects = resp.data.results;
-        });
+        this.getProjects();
     },
+
+    methods: {
+        getProjects() {
+            axios.get("http://127.0.0.1:8000/api/projects", {
+                params : {
+                    page: this.curPage,
+                },
+            })
+            .then((resp) => {
+                this.projects = resp.data.results.data;
+                this.lastPage =resp.data.results.last_page
+            });
+        }
+    }
 }
 </script>
 <template>
