@@ -34,6 +34,18 @@ export default {
             this.curPage = newPage;
             // rifa la chiamata axios con il parametro page aggiornato
             this.getProjects();
+        },
+        showNext(){
+            if (this.curPage < this.lastPage){
+                this.curPage++;
+                this.getProjects();
+            }
+        },
+        showPrev(){
+            if (this.curPage>1){
+                this.curPage--;
+                this.getProjects();
+            }
         }
     },
 
@@ -44,16 +56,16 @@ export default {
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <!-- previous -->
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            <li class="page-item ">
+                <a class="page-link" href="#" :disabled="curPage===1" @click.prevent="showPrev">Previous</a>
             </li>
             <!-- current -->
             <li class="page-item" v-for="page in lastPage">
-                <a class="page-link" href="#" @click.prevent="changePage(page)"> {{ page }}</a>
+                <a class="page-link" href="#"  @click.prevent="changePage(page)"> {{ page }}</a>
             </li>  
             <!-- next          -->
             <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" href="#" :disabled="curPage===lastPage" @click.prevent="showNext">Next</a>
             </li>
         </ul>
     </nav>
