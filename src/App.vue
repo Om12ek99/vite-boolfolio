@@ -1,5 +1,4 @@
 <script>
-import AppMain from "./components/AppMain.vue";
 export default {
   components: {
     AppMain,
@@ -9,5 +8,6 @@ export default {
 
 <template>
   <h1>Boolpress Projects</h1>
+  <router-view></router-view>
   <AppMain />
 </template>
