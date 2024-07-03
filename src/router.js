@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ProjectPage from "./pages/ProjectPage.vue";
 import AppHome from "./pages/AppHome.vue";
-import AppChiSiamo from "./pages/AppChiSiamo.vue";
+// import AppChiSiamo from "./pages/AppChiSiamo.vue";
 
 
 const router = createRouter({
@@ -17,12 +17,12 @@ const router = createRouter({
             name: 'home',
             component: AppHome
         },
-        {
-            path: '/',
-            name: 'chi-siamo',
-            component: AppChiSiamo
-        }
+        // {
+        //     path: '/',
+        //     name: 'chi-siamo',
+        //     component: AppChiSiamo
+        // }
     ]
 });
 
-export {router};
+export { router };
