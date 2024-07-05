@@ -12,6 +12,7 @@ export default {
             .then(
                 (resp) => {
                     this.project = resp.data.results;
+                    console.log(resp.data.results);
                 })
             .catch(err => {
                 console.error(err);
@@ -21,9 +22,25 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h1>ciao</h1>
-        <p>{{ project.title }}</p>
+    <div class="container mt-5">
+        <div v-if="project" class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.content }}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Tipologia del Progetto:</strong> {{ project.type_id }}</li>
+                    <li class="list-group-item" >
+                        <strong>Tecnologia Usata:</strong> 
+                        <ul>
+                            <span class="badge mx-1 text-dark" :style="{backgroundColor: tech.description}" v-for="tech in project.technologies">{{ tech.project_tech }}</span>                            
+                        </ul>                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div v-else>
+            <p>Loading...</p>
+        </div>
     </div>
 </template>
 <style></style>
