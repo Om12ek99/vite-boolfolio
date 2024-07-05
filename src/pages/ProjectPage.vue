@@ -55,16 +55,19 @@ export default {
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <!-- previous -->
-            <li class="page-item ">
-                <a class="page-link" href="#" :disabled="curPage===1" @click.prevent="showPrev">Previous</a>
+            <li class="page-item" :class="{ disabled: curPage === 1 }">
+                <a class="page-link" href="#" @click.prevent="showPrev">Previous</a>
             </li>
             <!-- current -->
-            <li class="page-item" v-for="page in lastPage">
-                <a class="page-link" href="#"  @click.prevent="changePage(page)"> {{ page }}</a>
-            </li>  
-            <!-- next          -->
-            <li class="page-item">
-                <a class="page-link" href="#" :disabled="curPage===lastPage" @click.prevent="showNext">Next</a>
+            <li class="page-item" 
+                v-for="page in lastPage" 
+                :key="page" 
+                :class="{ active: curPage === page }">
+                <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+            </li>
+            <!-- next -->
+            <li class="page-item" :class="{ disabled: curPage === lastPage }">
+                <a class="page-link" href="#" @click.prevent="showNext">Next</a>
             </li>
         </ul>
     </nav>
@@ -73,7 +76,9 @@ export default {
         <h2>Progetti</h2>
         <div v-if="projects.length" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <div class="col" v-for="project in projects" :key="project.id">
-                <AppProjectCard :project="project" />
+                <router-link :to="{ name: 'single-projects', params: { slug: project.slug } }">
+                    <AppProjectCard :project="project" />
+                </router-link>
             </div>
         </div>
         <div v-else>
@@ -81,5 +86,6 @@ export default {
         </div>
     </div>
 </template>
+
 
 <style></style>
