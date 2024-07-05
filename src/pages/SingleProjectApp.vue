@@ -4,6 +4,7 @@ export default {
     data() {
         return {
             project: null,
+             imageBaseUrl: 'http://127.0.0.1:8000/storage'
         }
     },
     created() {
@@ -27,6 +28,9 @@ export default {
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ project.content }}</p>
+                <img class="card-image img-fluid custom-image" :src="project.cover_image
+                    ? `${imageBaseUrl}/${project.cover_image}`
+                    : `https://placehold.co/500x300?text=immagine+non+disponibile`" alt="cover_image">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Tipologia del Progetto:</strong> {{ project.type_id }}</li>
                     <li class="list-group-item" >
@@ -43,4 +47,8 @@ export default {
         </div>
     </div>
 </template>
-<style></style>
+<style>
+.custom-image {
+    object-fit: cover;
+    max-width: 50%;
+}</style>

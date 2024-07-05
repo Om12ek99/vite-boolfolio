@@ -19,13 +19,22 @@ export default {
 <template>
     <div class="card h-100">
         <div class="card-body">
-            <img class="card-image img-fluid " :src="project.cover_image
+            <img 
+                class="custom-image" 
+                :src="project.cover_image
                     ? `${imageBaseUrl}/${project.cover_image}`
-                    : `https://placehold.co/500x300?text=immagine+non+disponibile`" alt="cover_image">
+                    : `https://placehold.co/500x300?text=immagine+non+disponibile`" 
+                alt="cover_image">
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.content }}</p>
         </div>
     </div>
 </template>
 
-<style scoped="scss"></style>
+<style scoped>
+.custom-image {
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+</style>
